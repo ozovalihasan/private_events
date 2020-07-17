@@ -182,3 +182,59 @@ Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.0ms)
 
 
   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/users/new" for ::1 at 2020-07-17 12:55:56 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/hillary/Desktop/private_events/app/views/users/_form.html.erb:7: syntax error, unexpected '<'
+<%= form_for @user do |f| 
+^
+/home/hillary/Desktop/private_events/app/views/users/_form.html.erb:8: syntax error, unexpected '(', expecting end
+@output_buffer.append=( f.label :username, 'Your use...
+                      ^
+/home/hillary/Desktop/private_events/app/views/users/_form.html.erb:8: syntax error, unexpected ')', expecting end
+...l :username, 'Your username:' );@output_buffer.safe_append='
+...                              ^
+/home/hillary/Desktop/private_events/app/views/users/_form.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/users/_form.html.erb:7: syntax error, unexpected '<'
+app/views/users/_form.html.erb:8: syntax error, unexpected '(', expecting end
+app/views/users/_form.html.erb:8: syntax error, unexpected ')', expecting end
+app/views/users/_form.html.erb:13: syntax error, unexpected ensure, expecting end-of-input
+app/views/users/new.html.erb:1:in `_app_views_users_new_html_erb__4400554541905837500_70266101923920'
+Started GET "/users/new" for ::1 at 2020-07-17 12:56:35 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 83ms (Views: 81.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-17 12:56:40 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q/CY18K8/PjtjfNHYrvykbrGDItLg8YoZcLzD0fTgVUpj6+yS4wd6L3wWbNC1BTZ0KRnxe6gLx8M4GmizcCXgg==", "user"=>{"username"=>"hasan"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-17 09:56:40.726689"], ["updated_at", "2020-07-17 09:56:40.726689"]]
+  ↳ app/controllers/users_controller.rb:8
+  [1m[35m (89.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:8
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 98ms (ActiveRecord: 90.6ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 12:56:40 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 65ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
