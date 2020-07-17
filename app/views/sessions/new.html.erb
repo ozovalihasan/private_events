@@ -1,7 +1,11 @@
+<div class="danger">
+  <%= flash[:danger] %>
+</div>
+
 <%= form_with(url: sign_in_path, scope: :session, local: true) do |form| %>
   <div class="actions">
-    <%= form.label :username %> 
-    <%= form.text_field :username %> 
+    <%= form.label :username %>
+    <%= form.text_field :username %>
 
     <%= form.submit "Sign in"%>
   </div>

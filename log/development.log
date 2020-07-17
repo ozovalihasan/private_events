@@ -395,3 +395,74 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 65ms (Views: 63.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/sign_in" for ::1 at 2020-07-17 13:21:39 +0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 247ms (Views: 243.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign_in" for ::1 at 2020-07-17 13:21:55 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D7e4hUJ4Kjrlpz39B1yiW2TF1uyOwtpE/lJv6c5vZFiNyI/gy0jLKrXalwknM0QTDqe9oivhM3OXcPVERHxyjw==", "session"=>{"username"=>"james"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "james"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 116ms (Views: 20.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/sign_in" for ::1 at 2020-07-17 13:23:22 +0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 65ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign_in" for ::1 at 2020-07-17 13:23:29 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzxMwWuNz7ZTKCt6CTgAb0Kp2xDtGPAOf6NdFkVMJsjVQ3uk4r0upgNVgY4pV+YnKMuwXkg7GTkWgce7z18wHw==", "session"=>{"username"=>"james"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "james"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for "User not found. Try again.":String):
+    1: <% if flash[:danger] %>
+    2: 	<% flash[:danger].each do |message|%>
+    3: 		<p> <%=  message %> </p>
+    4: 	<% end%>
+    5: <% end %>
+  
+app/views/sessions/new.html.erb:2:in `_app_views_sessions_new_html_erb___1527755980684874078_70266235650000'
+app/controllers/sessions_controller.rb:12:in `create'
+Started GET "/sign_in" for ::1 at 2020-07-17 13:25:54 +0300
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign_in" for ::1 at 2020-07-17 13:25:57 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2EUS8Tnq8IeS9r+jvXR8aR09bgULpRcAQwntxl0OzsRaOiWUsNoRl8KLFVedG5ohd18FS66G/jcqK3dr1x3YEw==", "session"=>{"username"=>"james"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "james"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 70ms (Views: 69.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sign_in" for ::1 at 2020-07-17 13:26:03 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dekg6KT3YjB3pY9b0WY9e/olVG0O0D8s8KpGQ2vMWqj3lheNLceDICfYJa/xCdszkEc/I6vz1huZiNzu4d9Mfw==", "session"=>{"username"=>""}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 91ms (Views: 90.2ms | ActiveRecord: 0.2ms)
+
+
