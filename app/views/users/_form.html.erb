@@ -1,3 +1,9 @@
+<% if flash[:info] %>
+	<% flash[:info].each do |message|%>
+		<p> <%=  message %> </p>
+	<% end%>
+<% end%
+
 <%= form_for @user do |f| %>
 <%= f.label :username, 'Your username:' %>
 <%= f.text_field :username, placeholder: "xxxxyyy" %>
