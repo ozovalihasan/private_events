@@ -1,12 +1,13 @@
 <div class="danger">
-  <%= flash[:danger] %>
+    <%= flash[:danger] %>
 </div>
+<% if current_user.nil? %>
+  <%= form_with(url: sign_in_path, scope: :session, local: true) do |form| %>
+    <div class="actions">
+        <%= form.label :username %>
+        <%= form.text_field :username %>
 
-<%= form_with(url: sign_in_path, scope: :session, local: true) do |form| %>
-  <div class="actions">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-
-    <%= form.submit "Sign in"%>
-  </div>
+        <%= form.submit "Sign in"%>
+    </div>
+  <% end %>
 <% end %>
