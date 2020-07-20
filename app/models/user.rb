@@ -1,4 +1,6 @@
 class User < ApplicationRecord
-  has_many :events, inverse_of: 'creator'
-  has_many :attended_events, inverse_of: 'attendee'
+  has_many :invitations
+  has_many :attended_event, through: :invitations, source: :event
+  has_many :events, inverse_of: 'creator', class_name: 'Event'
+  
 end
