@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.new(event_params)
+    @event = current_user.events.build(event_params)
     if @event.save
       flash[:info] = ['The user was saved succesfully.']
       redirect_to events_path
@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.find_by()
+    @event = Event.find_by(params[:id])
   end
 
   private
