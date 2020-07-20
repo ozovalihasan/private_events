@@ -2583,3 +2583,14 @@ Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.2ms)
 
 
   [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Started GET "/events" for ::1 at 2020-07-20 16:42:37 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:2
+  Rendered events/index.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 78ms (Views: 75.1ms | ActiveRecord: 1.1ms)
+
+
