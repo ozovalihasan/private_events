@@ -1,5 +1,5 @@
 <div>
-  <%= @event.creator.username %>
+  <%= @event.creator.username %><br>
   <%= @event.title %><br>
   <% @event.attendees.each_with_index do | attendee, index | %>
   <%= attendee.username %><br>
