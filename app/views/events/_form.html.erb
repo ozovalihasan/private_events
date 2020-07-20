@@ -1,9 +1,16 @@
-   <%= form_for @post do |f| %>
+   <%= form_for @event do |f| %>
    <div>
-       <%= f.label :body, 'Post', :class => "font-weight-bold" %>
+       <%= f.label :title, 'Event' %>
    </div>
    <div>
-       <%= f.text_area :body, placeholder: "Please add your post" %>
+       <%= f.text_field :title %>
+   </div>
+
+   <div>
+       <%= f.label :description, 'Event' %>
+   </div>
+   <div>
+       <%= f.text_area :description %>
    </div>
    <div>
        <%= f.submit "Submit", :class => "btn-primary"%>
