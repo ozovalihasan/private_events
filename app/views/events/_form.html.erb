@@ -1,13 +1,20 @@
    <%= form_for @event do |f| %>
    <div>
-       <%= f.label :title, 'Event' %>
+       <%= f.label :title, 'Title' %>
    </div>
    <div>
        <%= f.text_field :title %>
    </div>
 
+    <div>
+       <%= f.label :date, 'Date' %>
+   </div>
    <div>
-       <%= f.label :description, 'Event' %>
+       <%= f.date_field :date %>
+   </div>
+
+   <div>
+       <%= f.label :description, 'Description' %>
    </div>
    <div>
        <%= f.text_area :description %>

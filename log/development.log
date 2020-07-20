@@ -2482,3 +2482,104 @@ Processing by EventsController#show as HTML
 Completed 200 OK in 87ms (Views: 79.9ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/events/new" for ::1 at 2020-07-20 16:25:03 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (33.0ms)
+  Rendered events/new.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 166ms (Views: 72.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/new" for ::1 at 2020-07-20 16:25:42 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (4.5ms)
+  Rendered events/new.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/new" for ::1 at 2020-07-20 16:26:43 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (2.0ms)
+  Rendered events/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 51ms (Views: 50.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/new" for ::1 at 2020-07-20 16:27:49 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (22.7ms)
+  Rendered events/new.html.erb within layouts/application (23.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/events" for ::1 at 2020-07-20 16:28:43 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t6xylgd5Tc9oqD4TCA0zsOBnxBaGNhNcTZGtEPubMbSavoXvVcK4wr0LVI3yggwMDqnZUpx7RvnH4DFTz+wZ+A==", "event"=>{"title"=>"Wedding ceremony", "date"=>"2020-07-21", "description"=>"Just married"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Unpermitted parameter: :description
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:8
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id", "title") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2020-07-21"], ["created_at", "2020-07-20 13:28:43.988753"], ["updated_at", "2020-07-20 13:28:43.988753"], ["user_id", 17], ["title", "Wedding ceremony"]]
+  ↳ app/controllers/events_controller.rb:8
+  [1m[35m (58.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:8
+Redirected to http://localhost:3000/events
+Completed 302 Found in 75ms (ActiveRecord: 58.9ms)
+
+
+Started GET "/events" for ::1 at 2020-07-20 16:28:44 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+Started GET "/events/new" for ::1 at 2020-07-20 16:29:56 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (8.3ms)
+  Rendered events/new.html.erb within layouts/application (9.4ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 173ms (Views: 114.6ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/events" for ::1 at 2020-07-20 16:30:48 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fn9Xw0VgwLgjcppvBgW83VCohTHSBZGs4fJvqSbXRj9TbaC6F9s1tfbR8PH8ioNhvmaYdchIxAlrg/PqEqBucw==", "event"=>{"title"=>"Opening schools", "date"=>"2020-07-30", "description"=>"We are waiting for you"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:8
+  [1m[36mEvent Create (6.8ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id", "title", "description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-07-30"], ["created_at", "2020-07-20 13:30:48.946336"], ["updated_at", "2020-07-20 13:30:48.946336"], ["user_id", 17], ["title", "Opening schools"], ["description", "We are waiting for you"]]
+  ↳ app/controllers/events_controller.rb:8
+  [1m[35m (59.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:8
+Redirected to http://localhost:3000/events
+Completed 302 Found in 79ms (ActiveRecord: 66.4ms)
+
+
+Started GET "/events" for ::1 at 2020-07-20 16:30:49 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  Rendered events/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
