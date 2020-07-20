@@ -1,4 +1,7 @@
 <div>
   <%= @event.creator.username %>
-  <%= @event.title %>
+  <%= @event.title %><br>
+  <% @event.attendees.each_with_index do | attendee, index | %>
+  <%= attendee.username %><br>
+  <% end %><br>
 </div>
