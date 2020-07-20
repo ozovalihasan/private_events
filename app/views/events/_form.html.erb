@@ -1,0 +1,11 @@
+   <%= form_for @post do |f| %>
+   <div>
+       <%= f.label :body, 'Post', :class => "font-weight-bold" %>
+   </div>
+   <div>
+       <%= f.text_area :body, placeholder: "Please add your post" %>
+   </div>
+   <div>
+       <%= f.submit "Submit", :class => "btn-primary"%>
+   </div>
+   <% end %>
