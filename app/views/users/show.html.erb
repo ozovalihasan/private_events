@@ -1,1 +1,7 @@
-hi this is show page
+<div><% @events.each do |event| %>
+
+    <%= event.date %> |
+    <%= event.title %>
+    <br>
+    <% end %>
+</div>
