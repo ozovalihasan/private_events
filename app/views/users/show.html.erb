@@ -3,8 +3,8 @@
 <div>
     <% @created_events.each do |event| %>
     <h3>
-        <%= event.date %> |
-        <%= event.title %>
+        <%= link_to event.title, event_path(event) %><br>
+        <%= event.date %>
     </h3>
     <br>
     <% end %>
@@ -19,7 +19,7 @@
 
     <% @previous_events.each_with_index do |previous_event, index| %>
     <h3>
-        <%= previous_event.title %> <br>
+        <%= link_to previous_event.title, event_path(previous_event) %> <br>
     </h3>
     <% end %>
 </div>
@@ -27,12 +27,12 @@
 
 <h1>Upcoming events</h1>
 <% if @upcoming_events.count.zero? %>
-<h3>There is no upcoming event.</h3>
+<h3>There is no upcoming event to attend.</h3>
 <% else %>
 <div>
     <% @upcoming_events.each_with_index do |upcoming_event, index| %>
     <h3>
-        <%= upcoming_event.title %> <br>
+        <%= link_to upcoming_event.title, event_path(upcoming_event) %> <br>
     </h3>
     <% end %>
 </div>

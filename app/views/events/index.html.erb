@@ -6,10 +6,8 @@
 <div>
     <% Event.past.each do |event |  %>
     <h3>
-
-        <%= link_to event.title, event_path(event) %>
-        <%= event.date %>
-        <%= event.description %>
+    <%= link_to event.title, event_path(event) %><br>
+    <%= event.date %><br>
     </h3>
     <br>
     <% end %>
@@ -22,7 +20,7 @@
 <div>
     <% Event.future.each do |event |  %>
     <h3>
-        <%= link_to event.title, event_path(event) %>
+        <%= link_to event.title, event_path(event) %><br>
         <%= event.date %>
         <%= event.description %>
 

@@ -24,7 +24,7 @@
                 <div class='current-user'>
                     <h3>
                         <% if current_user %>
-                        Hi <%= current_user.username %>
+                        Hi <%= link_to current_user.username, user_path(current_user), class: 'username'%>
                         |
                         <%= link_to 'Sign out', sign_out_path, method: :delete %>
                         <% else %>
