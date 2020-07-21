@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  helper_method :past
   def new
     @event = Event.new
   end
