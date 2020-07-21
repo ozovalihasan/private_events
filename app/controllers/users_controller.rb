@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     if user
       @attend_events = user.attended_event
       @events = user.events
+      @previous_events = user.attended_event.where("date < (?) ", Date.today )
+      @upcoming_events = user.attended_event.where("date >= (?)", Date.today )
     end
   end
 
