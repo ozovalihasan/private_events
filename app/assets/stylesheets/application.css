@@ -14,7 +14,24 @@
  *= require_self
  */
 
+
+ body {
+     padding-left: 2em;
+     padding-right: 2em;
+ }
+
+ nav {
+    display: flex;
+ }
+
+ .right-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em;
+}
+
  .current_user {
-     float: right;
+     width: 100%;
      margin: 1em;
  }

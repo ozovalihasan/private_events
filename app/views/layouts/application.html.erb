@@ -14,19 +14,35 @@
 </head>
 
 <body>
-    <header>
-        <h3 class='current_user'>
-            <% if current_user %>
-            Hi <%= current_user.username %>
-            |
-            <%= link_to 'Sign out', sign_out_path, method: :delete %>
-            <% else %>
-            <%= link_to 'Sign in', sign_in_path %>
-            |
-            <%= link_to 'Sign up', new_user_path %>
-            <% end %>
-        </h3>
 
+    <header>
+        <nav>
+            <div class="left-nav">
+
+            </div>
+            <div class="right-nav">
+                <div class='current-user'>
+                    <h3>
+                        <% if current_user %>
+                        Hi <%= current_user.username %>
+                        |
+                        <%= link_to 'Sign out', sign_out_path, method: :delete %>
+                        <% else %>
+                        <%= link_to 'Sign in', sign_in_path %>
+                        |
+                        <%= link_to 'Sign up', new_user_path %>
+                        <% end %>
+                    </h3>
+                </div>
+                <% if current_user %>
+                <div class='create_event'>
+                    <h3><%= link_to 'Create Event', new_event_path %></h3>
+                </div>
+                <% end %>
+
+
+            </div>
+        </nav>
     </header>
     <%= yield %>
 </body>
