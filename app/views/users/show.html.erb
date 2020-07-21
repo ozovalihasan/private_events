@@ -1,11 +1,14 @@
-<div><% @events.each do |event| %>
+<div>
+  <% @events.each do |event| %>
   <%= event.date %> |
   <%= event.title %>
   <br>
   <% end %>
 </div>
 <div>
-  <%= attend_events.each do |attend_event| %>
-  <%= attend_event %>
+<% if @attend_events %>
+    <%= @attend_events.each do |attend_event| %>
+    <%= attend_event %>
+    <% end %>
   <% end %>
 </div>

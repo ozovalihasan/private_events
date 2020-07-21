@@ -3148,3 +3148,123 @@ FOREIGN KEY ("event_id")
   [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 17]]
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 16]]
+Started GET "/" for ::1 at 2020-07-21 10:37:34 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-5.2.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-5.2.4.3/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 43ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-21 10:37:56 +0300
+  
+SyntaxError (/home/hillary/Desktop/private_events/app/controllers/users_controller.rb:28: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:28: syntax error, unexpected end-of-input, expecting end
+Started GET "/users/new" for ::1 at 2020-07-21 10:39:30 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (57.1ms)
+  Rendered users/new.html.erb within layouts/application (71.6ms)
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1285ms (Views: 1189.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/users/4" for ::1 at 2020-07-21 10:40:09 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mEvent Load (6.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? LIMIT ?[0m  [["user_id", 17], ["LIMIT", 11]]
+  ↳ /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? LIMIT ?[0m  [["user_id", 17], ["LIMIT", 11]]
+  ↳ /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 469ms (ActiveRecord: 0.2ms)
+
+
+  
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? LIMIT ?[0m  [["user_id", 17], ["LIMIT", 11]]
+  ↳ /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+NameError (undefined local variable or method `id' for #<UsersController:0x00007f71b58526d0>):
+  
+app/controllers/users_controller.rb:19:in `show'
+Started GET "/users/4" for ::1 at 2020-07-21 10:40:34 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 17]]
+  ↳ app/views/users/show.html.erb:1
+  Rendered users/show.html.erb within layouts/application (518.7ms)
+Completed 500 Internal Server Error in 572ms (ActiveRecord: 3.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `attend_events' for #<#<Class:0x00007f71b53feef8>:0x00007f71b5406ea0>):
+     5:   <% end %>
+     6: </div>
+     7: <div>
+     8:   <%= attend_events.each do |attend_event| %>
+     9:   <%= attend_event %>
+    10:   <% end %>
+    11: </div>
+  
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb__3777662087997095788_70063174435080'
+Started GET "/users/4" for ::1 at 2020-07-21 10:43:33 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 17]]
+  ↳ app/views/users/show.html.erb:1
+  Rendered users/show.html.erb within layouts/application (542.7ms)
+Completed 500 Internal Server Error in 553ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `attend_events' for #<#<Class:0x00007f71b53feef8>:0x00007f71bc025af0>):
+     5:   <% end %>
+     6: </div>
+     7: <div>
+     8: <% if attend_events %>
+     9:     <%= attend_events.each do |attend_event| %>
+    10:     <%= attend_event %>
+    11:     <% end %>
+  
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb__3777662087997095788_70063231152600'
+Started GET "/users/4" for ::1 at 2020-07-21 10:44:31 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (5.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 17]]
+  ↳ app/views/users/show.html.erb:1
+  Rendered users/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 71ms (Views: 62.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/4" for ::1 at 2020-07-21 10:45:07 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 17]]
+  ↳ app/views/users/show.html.erb:2
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 46ms (Views: 39.0ms | ActiveRecord: 4.8ms)
+
+
