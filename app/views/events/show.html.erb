@@ -1,26 +1,38 @@
-<div>
-    <h1>
-        <%= @event.title %><br>
-    </h1>
-    <h2><%= @event.description %> </h2>
-    <h3><%= @event.date %></h3>
-    <h4>Created by <%= link_to @event.creator.username, user_path(@event.creator) %></h4><br>
-    <% if @event.attendees.count.zero? %>
-    <h3>
-        There is no any attendee for this party
-    </h3>
-    <% else %>
-    <h3>Attendees of this event:</h3>
-    <% @event.attendees.each_with_index do | attendee, index | %>
-    <h4>
-        <%= attendee.username %>
-    </h4>
-    <br>
-    <% end %><br>
-    <% end %>
-    <% if @event.creator == current_user %>
+<div class="wrapper">
+    <div class="wrapper2">
+        <div>
+            <h1>
+                <%= @event.title %><br>
+            </h1>
+            <h2><%= @event.description %> </h2>
+            <h3><%= @event.date %></h3>
+            <h4>Created by <%= link_to @event.creator.username, user_path(@event.creator) %></h4><br>
+            <% if @event.attendees.count.zero? %>
+            <h3>
+                There is no any attendee for this party
+            </h3>
+            <% else %>
 
-    <%= render partial: 'invitations/form' %>
 
-    <% end %>
+        </div>
+
+        <div>
+            <h3>Attendees of this event:</h3><% @event.attendees.each_with_index do | attendee, index | %>
+            <h4>
+                <%= attendee.username %>
+            </h4>
+            <br>
+            <% end %><br>
+            <% end %>
+
+
+        </div>
+    </div>
+
+    <div class="wrapper3">
+        <% if @event.creator == current_user %>
+        <%= render partial: 'invitations/form' %>
+        <% end %>
+    </div>
+
 </div>
