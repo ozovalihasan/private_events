@@ -18,4 +18,9 @@
     <br>
     <% end %><br>
     <% end %>
+    <% if @event.creator == current_user %>
+
+    <%= render partial: 'invitations/form' %>
+
+    <% end %>
 </div>
