@@ -16,8 +16,9 @@ class UsersController < ApplicationController
   
   def show
     @events = current_user.events
-    if User.find_by(id:params[:id])
-    @attend_events = User.find_by(id:params[:id])
+    user = User.find_by(id: params[:id])
+    if user
+      @attend_events = user.attended_event
     end
   end
 
