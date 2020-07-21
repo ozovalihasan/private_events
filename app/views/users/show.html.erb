@@ -1,3 +1,4 @@
+<% if @attend_events %>
 <div>
     <% @events.each do |event| %>
     <%= event.date %> |
@@ -6,10 +7,10 @@
     <% end %>
 </div>
 <div>
-    <% if @attend_events %>
+
     <% @attend_events.each_with_index do |attend_event, index| %>
     <%= attend_event.title %> <br>
     <% end %>
-    <% end %>
 
 </div>
+<% end %>
