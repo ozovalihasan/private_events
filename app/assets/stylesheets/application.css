@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ .current_user {
+     float: right;
+     margin: 1em;
+ }
