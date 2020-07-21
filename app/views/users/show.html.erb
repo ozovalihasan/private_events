@@ -1,30 +1,39 @@
-<% if @attend_events %>
+<% unless @created_events.count.zero? %>
+<h1>Created events by <%= @user.username %></h1>
 <div>
-  <% @events.each do |event| %>
-  <%= event.date %> |
-  <%= event.title %>
-  <br>
-  <% end %>
-</div>
-<div>
-  <% @attend_events.each_with_index do |attend_event, index| %>
-  <%= attend_event.title %> <br>
-  <% end %>
-</div>
-<% if @previous_events.count != 0 %>
-<div>
-  <h1>Previous events</h1>
-  <% @previous_events.each_with_index do |previous_event, index| %>
-  <%= previous_event.title %> <br>
-  <% end %>
+    <% @created_events.each do |event| %>
+    <h3>
+        <%= event.date %> |
+        <%= event.title %>
+    </h3>
+    <br>
+    <% end %>
 </div>
 <% end %>
-<% if @upcoming_events.count != 0 %>
+
+<h1>Previous events</h1>
+<% if @previous_events.count.zero? %>
+<h3>There is no previous attended event.</h3>
+<% else %>
 <div>
-  <h1>Upcoming events</h1>
-  <% @upcoming_events.each_with_index do |upcoming_event, index| %>
-  <%= upcoming_event.title %> <br>
-  <% end %>
+
+    <% @previous_events.each_with_index do |previous_event, index| %>
+    <h3>
+        <%= previous_event.title %> <br>
+    </h3>
+    <% end %>
 </div>
 <% end %>
+
+<h1>Upcoming events</h1>
+<% if @upcoming_events.count.zero? %>
+<h3>There is no upcoming event.</h3>
+<% else %>
+<div>
+    <% @upcoming_events.each_with_index do |upcoming_event, index| %>
+    <h3>
+        <%= upcoming_event.title %> <br>
+    </h3>
+    <% end %>
+</div>
 <% end %>
