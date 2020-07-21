@@ -39,3 +39,11 @@
  .username {
      font-weight: bold;
  }
+
+ .create_event {
+     display: flex;
+ }
+
+ .create_event h3 {
+     padding: 0 0.5em;
+ }

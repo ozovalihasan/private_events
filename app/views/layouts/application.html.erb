@@ -36,6 +36,8 @@
                 </div>
                 <% if current_user %>
                 <div class='create_event'>
+
+                    <h3><%= link_to 'Home', root_path %></h3>
                     <h3><%= link_to 'Create Event', new_event_path %></h3>
                 </div>
                 <% end %>
