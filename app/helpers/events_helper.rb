@@ -17,13 +17,13 @@ module EventsHelper
      if @event.attendees.all.size.zero?
       render 'no_attendance'
        else 
-        render 'attendance'
+        render 'attendance', event: @event
       end
   end
 
   def creator 
     if @event.creator == current_user
-     render 'invitations/form'
+     render 'invitations/form', event: @event
     end
   end
 end

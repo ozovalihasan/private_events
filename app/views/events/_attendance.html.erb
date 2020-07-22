@@ -1,9 +1,9 @@
 <div>
-  <h3>Attendees of this event:</h3>
-  <% @event.attendees.find_each do | attendee | %>
-  <h4>
-    <%= attendee.username %>
-  </h4>
-  <br>
-  <% end %><br>
+    <h3>Attendees of this event:</h3>
+    <% event.attendees.find_each do | attendee | %>
+    <h4>
+        <%= attendee.username %>
+    </h4>
+    <br>
+    <% end %><br>
 </div>

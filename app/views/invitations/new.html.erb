@@ -1,7 +1,0 @@
-<%= form_for  do |f| %>
-<%= f.label :username, 'Your username:' %>
-<%= f.select :user_id, User.all.collect { |p| [ p.username, p.id ] }, include_blank: true %>
-<%= hidden_field_tag(:event_id, "5") %>
-
-<%= f.submit "Submit" %>
-<% end %>

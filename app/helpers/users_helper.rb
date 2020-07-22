@@ -1,7 +1,7 @@
 module UsersHelper
     def print_created_events
         unless @created_events.all.size.zero? 
-            render 'created_events'
+            render 'created_events', user: @user, created_events: @created_events
          end
     end
 
@@ -9,7 +9,7 @@ module UsersHelper
         if @previous_events.all.size.zero? 
             render 'no_previous_events'
         else
-            render 'previous_events'
+            render 'previous_events', previous_events: @previous_events
         end 
     end
 
@@ -17,7 +17,7 @@ module UsersHelper
         if @upcoming_events.all.size.zero? 
             render 'no_upcoming_events'
         else
-            render 'upcoming_events'
+            render 'upcoming_events', upcoming_events: @upcoming_events
         end 
     end
 end
