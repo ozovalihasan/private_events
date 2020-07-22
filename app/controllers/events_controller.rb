@@ -23,19 +23,15 @@ class EventsController < ApplicationController
     @users = User.all
   end
 
-
   def add_user_to_event(user)
-    self.attendees << user
+    attendees << user
     redirect_to user
-  end 
+  end
   helper_method :add_user_to_event
 
-
-
   private
- 
+
   def event_params
     params.require(:event).permit(:date, :title, :description)
   end
-  
 end

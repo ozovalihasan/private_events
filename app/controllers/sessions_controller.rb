@@ -1,10 +1,8 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :delete]
+  skip_before_action :require_login, only: %i[new create delete]
 
   def new
-    if current_user
-      redirect_to user_path(current_user)
-    end
+    redirect_to user_path(current_user) if current_user
   end
 
   def create
@@ -23,7 +21,4 @@ class SessionsController < ApplicationController
     @current_user = nil
     redirect_to sign_in_path
   end
-
 end
-
-

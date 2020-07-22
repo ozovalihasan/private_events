@@ -1,7 +1,5 @@
 module SessionsHelper
   def sign_in_form
-    if current_user.nil?
-      render 'sign_in_form'
-    end
+    render 'sign_in_form' if current_user.nil?
   end
 end

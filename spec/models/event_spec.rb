@@ -1,11 +1,29 @@
 require 'rails_helper'
 
-RSpec.describe Event, :type => :model do
-  it 'has two instances after adding two events' do
+RSpec.describe Event, type: :model do
+  describe 'Associations' do
+    it { should belong_to(:creator) }
+    it { should belong_to(:creator).class_name('User') }
+    it { should have_many(:invitations) }
+    it { should have_many(:invitations).dependent(:destroy) }
+    it { should have_many(:attendees) }
+    it { should have_many(:attendees).dependent(:destroy) }
+  end
+
+  let(:user) do
     User.create(username: 'hasan')
-    User.first.events.create(date: '15/8/2020'.to_date)
-    User.first.events.create(date: '20/7/2020'.to_date)
-    expect(Event.last.date).to eql('20/7/2020'.to_date)
-    expect(Event.count).to eql(2)
+  end
+
+  subject do
+    user.events.new(date: '15/8/2020'.to_date)
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  it 'is invalid when creator is not defined' do
+    subject.creator = nil
+    expect(subject).to_not be_valid
   end
 end

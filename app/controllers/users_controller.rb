@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: %i[new create]
 
   def new
     @user = User.new
@@ -15,14 +15,13 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def show
-    
     @user = User.find(params[:id])
     if @user
       @created_events = @user.events
-      @previous_events = @user.attended_event.where("date < (?) ", Date.today )
-      @upcoming_events = @user.attended_event.where("date >= (?)", Date.today )
+      @previous_events = @user.attended_event.where('date < (?) ', Date.today)
+      @upcoming_events = @user.attended_event.where('date >= (?)', Date.today)
     end
   end
 

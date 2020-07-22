@@ -10111,3 +10111,234 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 77ms (Views: 70.0ms | ActiveRecord: 4.3ms)
 
 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-22 14:59:02.677988"], ["updated_at", "2020-07-22 14:59:02.677988"]]
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-22 14:59:02.869938"], ["updated_at", "2020-07-22 14:59:02.869938"]]
+  [1m[35m (102.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (3.5ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-22 14:59:03.032744"], ["updated_at", "2020-07-22 14:59:03.032744"], ["user_id", 19]]
+  [1m[35m (79.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 19]]
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 12]]
+  [1m[36mEvent Destroy (1.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 12]]
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 19]]
+  [1m[35m (61.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 20]]
+  [1m[36mUser Destroy (2.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 20]]
+  [1m[35m (65.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mInvitation Load (0.3ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[36mInvitation Destroy (0.7ms)[0m  [1m[31mDELETE FROM "invitations" WHERE "invitations"."id" = ?[0m  [["id", 29]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 21]]
+  [1m[36mInvitation Load (0.6ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mEvent Destroy (0.4ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 8]]
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 10]]
+  [1m[36mEvent Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 10]]
+  [1m[36mInvitation Load (0.1ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 11]]
+  [1m[36mEvent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 11]]
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 21]]
+  [1m[35m (82.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 22]]
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 9]]
+  [1m[36mEvent Destroy (2.1ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 9]]
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 22]]
+  [1m[35m (103.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mInvitation Load (0.2ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 23]]
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 23]]
+  [1m[35m (136.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mInvitation Load (0.4ms)[0m  [1m[34mSELECT "invitations".* FROM "invitations" WHERE "invitations"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 24]]
+  [1m[36mUser Destroy (4.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 24]]
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-22 15:00:27.612604"], ["updated_at", "2020-07-22 15:00:27.612604"]]
+  [1m[35m (94.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-22 15:00:27.725913"], ["updated_at", "2020-07-22 15:00:27.725913"]]
+  [1m[35m (70.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-22 15:00:27.829142"], ["updated_at", "2020-07-22 15:00:27.829142"], ["user_id", 25]]
+  [1m[35m (78.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/21" for ::1 at 2020-07-22 18:23:42 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hasan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21
+Completed 404 Not Found in 20ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=21):
+  
+app/controllers/users_controller.rb:21:in `show'
+Started DELETE "/sign_out" for ::1 at 2020-07-22 18:23:43 +0300
+Processing by SessionsController#delete as HTML
+  Parameters: {"authenticity_token"=>"U35DFKLr5pKc0Q+ZjmX/2UQ/NbXftW0MWhtlUMPpwhZiCqjTwvx1iKqQw2OhazFheyESm6dJHXy2Nydk1sop8g=="}
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for ::1 at 2020-07-22 18:23:43 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/_sign_in_form.html.erb (87.1ms)
+  Rendered sessions/new.html.erb within layouts/application (98.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_in_link.html.erb (0.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 1658ms (Views: 1639.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sign_in" for ::1 at 2020-07-22 18:23:47 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/_sign_in_form.html.erb (2.5ms)
+  Rendered sessions/new.html.erb within layouts/application (6.6ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_in_link.html.erb (1.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 91ms (Views: 86.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-22 18:24:02 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.9ms)
+  Rendered users/new.html.erb within layouts/application (18.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_in_link.html.erb (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 95ms (Views: 80.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for ::1 at 2020-07-22 18:24:07 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrdCKu/DMDdlN1e4jheLrtV4OFOhlEoypFIIZDHrw02R7vX6Y4CNJRP3UmtHXA3Vrlnb8RXkDcn0IJXt2Hkiow==", "user"=>{"username"=>"hasan"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-22 15:24:07.920671"], ["updated_at", "2020-07-22 15:24:07.920671"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (206.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 220ms (ActiveRecord: 207.1ms)
+
+
+Started GET "/sign_in" for ::1 at 2020-07-22 18:24:08 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/_sign_in_form.html.erb (3.9ms)
+  Rendered sessions/new.html.erb within layouts/application (13.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_in_link.html.erb (1.1ms)
+  [1m[36mCACHE User Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 83ms (Views: 73.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/sign_in" for ::1 at 2020-07-22 18:24:14 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mTKIBPDKDNH8tz9MMC2IP4FfXEbds0chMwjB+hcVJM2oRmPDkN2fy8r287YfI0aHvkF7aKVPN1HfJIPOAjbPKQ==", "session"=>{"username"=>"hasan"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hasan"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-07-22 18:24:14 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  Rendered events/_no_past_event.html.erb (0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/helpers/events_helper.rb:10
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-22') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (21.3ms)
+  Rendered events/index.html.erb within layouts/application (42.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.9ms)
+  Rendered layouts/_menu_links.html.erb (1.9ms)
+Completed 200 OK in 158ms (Views: 135.2ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/sign_out" for ::1 at 2020-07-22 18:24:42 +0300
+Processing by SessionsController#delete as HTML
+  Parameters: {"authenticity_token"=>"zIRfjO6wCK95uLBZGVobhwN4waCWVa+/L5Tu0r6BU5T98LRLjqebtU/5fKM2VNU/PGbmju6p38/DuKzmq6K4cA=="}
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for ::1 at 2020-07-22 18:24:42 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/_sign_in_form.html.erb (3.7ms)
+  Rendered sessions/new.html.erb within layouts/application (10.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_in_link.html.erb (1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 74ms (Views: 66.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
