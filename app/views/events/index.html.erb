@@ -1,36 +1,12 @@
 <div class="container">
     <div class="past-events">
         <h1>Past Events</h1>
-        <% if Event.past.count.zero? %>
-        <h3>There is no past event.</h3>
-        <% else %>
-        <div>
-            <% Event.past.each do |event |  %>
-            <h3>
-                <%= link_to event.title, event_path(event) %><br>
-                <%= event.date %><br>
-            </h3>
-            <br>
-            <% end %>
-        </div>
-        <% end %>
+        <%= past_events %>
     </div>
 
     <div class="upcoming">
         <h1>Upcoming Events</h1>
-        <% if Event.future.count.zero?  %>
-        <h3>There is no upcoming event</h3>
-        <% else %>
-        <div>
-            <% Event.future.each do |event |  %>
-            <h3>
-                <%= link_to event.title, event_path(event) %><br>
-                <%= event.date %>
-            </h3>
-            <br>
-            <% end %>
-        </div>
-        <% end %>
+        <%= upcoming_events %>
     </div>
 
 </div>

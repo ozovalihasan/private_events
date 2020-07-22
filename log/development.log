@@ -9408,3 +9408,117 @@ Processing by EventsController#show as HTML
 Completed 200 OK in 87ms (Views: 81.8ms | ActiveRecord: 2.4ms)
 
 
+Started GET "/" for ::1 at 2020-07-22 13:17:12 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hillary/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:3: syntax error, unexpected '<'
+    <% if Event.past.count.zero? %>
+    ^
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:3: syntax error, unexpected tCONSTANT, expecting end
+    <% if Event.past.count.zero? %>
+          ^~~~~
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:4: syntax error, unexpected tCONSTANT, expecting end
+      <h3>There is no past event.</h3>
+          ^~~~~
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:5: syntax error, unexpected '<'
+      <% else %>
+      ^
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:5: syntax error, unexpected '>'
+      <% else %>
+               ^
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:7: syntax error, unexpected do (for block), expecting end
+          <% Event.past.each do |event |  %>
+                             ^~
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:9: syntax error, unexpected '<', expecting end
+              <%= link_to event.title, event...
+              ^
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:10: syntax error, unexpected tIDENTIFIER, expecting end
+              <%= event.date %><br>
+                  ^~~~~
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:11: syntax error, unexpected '<', expecting end
+          </h3>
+          ^
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:14: unknown regexp options - dv
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:15: syntax error, unexpected '<'
+      <% end %>
+      ^
+/home/hillary/Desktop/private_events/app/helpers/events_helper.rb:15: syntax error, unexpected '>'
+      <% end %>
+              ^):
+  
+app/helpers/events_helper.rb:3: syntax error, unexpected '<'
+app/helpers/events_helper.rb:3: syntax error, unexpected tCONSTANT, expecting end
+app/helpers/events_helper.rb:4: syntax error, unexpected tCONSTANT, expecting end
+app/helpers/events_helper.rb:5: syntax error, unexpected '<'
+app/helpers/events_helper.rb:5: syntax error, unexpected '>'
+app/helpers/events_helper.rb:7: syntax error, unexpected do (for block), expecting end
+app/helpers/events_helper.rb:9: syntax error, unexpected '<', expecting end
+app/helpers/events_helper.rb:10: syntax error, unexpected tIDENTIFIER, expecting end
+app/helpers/events_helper.rb:11: syntax error, unexpected '<', expecting end
+app/helpers/events_helper.rb:14: unknown regexp options - dv
+app/helpers/events_helper.rb:15: syntax error, unexpected '<'
+app/helpers/events_helper.rb:15: syntax error, unexpected '>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/events_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2020-07-22 13:20:36 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/views/events/_event.html.erb:2
+  Rendered events/_event.html.erb (38.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/views/events/index.html.erb:9
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (56.5ms)
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (0.8ms)
+  Rendered layouts/_menu_links.html.erb (0.5ms)
+Completed 200 OK in 1153ms (Views: 1096.7ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/" for ::1 at 2020-07-22 13:20:43 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (3.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/views/events/_event.html.erb:2
+  Rendered events/_event.html.erb (5.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/views/events/index.html.erb:9
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (15.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (0.8ms)
+  Rendered layouts/_menu_links.html.erb (1.4ms)
+Completed 200 OK in 59ms (Views: 52.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/" for ::1 at 2020-07-22 13:25:35 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date < ('2020-07-22') )[0m
+  ↳ app/views/events/_event.html.erb:2
+  Rendered events/_event.html.erb (16.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/helpers/events_helper.rb:10
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (date >= ('2020-07-22') )[0m
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (2.1ms)
+  Rendered events/index.html.erb within layouts/application (34.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.4ms)
+  Rendered layouts/_menu_links.html.erb (0.7ms)
+Completed 200 OK in 148ms (Views: 136.5ms | ActiveRecord: 4.0ms)
+
+
