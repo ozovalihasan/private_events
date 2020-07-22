@@ -1,6 +1,6 @@
 <h1>Created events by <%= @user.username %></h1>
 <div>
-    <% @created_events.each do |event| %>
+    <% @created_events.find_each do |event| %>
     <h3>
         <%= link_to event.title, event_path(event) %><br>
         <%= event.date %>

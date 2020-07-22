@@ -1,6 +1,6 @@
 <div>
   <h3>Attendees of this event:</h3>
-  <% @event.attendees.each_with_index do | attendee, index | %>
+  <% @event.attendees.find_each do | attendee | %>
   <h4>
     <%= attendee.username %>
   </h4>

@@ -1,9 +1,9 @@
 module EventsHelper
   def past_events
     if Event.past.all.size.zero?
-      render 'no_event'
+      render 'no_past_event'
        else 
-      render 'event'
+      render 'past_event'
      end
   end 
   def upcoming_events
