@@ -5,6 +5,4 @@ class Event < ApplicationRecord
   scope :past, -> { where("date < (?) ", Date.today ) }
   scope :future, -> { where("date >= (?) ", Date.today ) }
   
-  
-
 end
