@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   
   def show
     
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     if @user
       @created_events = @user.events
       @previous_events = @user.attended_event.where("date < (?) ", Date.today )
