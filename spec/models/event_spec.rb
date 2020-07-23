@@ -5,7 +5,6 @@ RSpec.describe Event, type: :model do
     it { should belong_to(:creator) }
     it { should belong_to(:creator).class_name('User') }
     it { should have_many(:invitations) }
-    it { should have_many(:invitations).dependent(:destroy) }
     it { should have_many(:attendees) }
     it { should have_many(:attendees).dependent(:destroy) }
   end

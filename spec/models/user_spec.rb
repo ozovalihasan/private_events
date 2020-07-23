@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Associations' do
     it { should have_many(:invitations) }
-    it { should have_many(:invitations).dependent(:destroy) }
     it { should have_many(:attended_event) }
     it { should have_many(:attended_event).dependent(:destroy) }
     it { should have_many(:attended_event).through(:invitations).source(:event) }
