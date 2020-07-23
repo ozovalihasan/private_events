@@ -48,6 +48,11 @@ In this project, the following actions are done;
 - Refactored the “upcoming” and “past” methods into simple scopes.
 - Added navigation links.
 
+### Tests
+
+- Added tests for model and features of the app
+- 'rspec', 'capybara' and 'shoulda-matchers' gems are used for tests
+
 ## Built With
 
 - Ruby on rails
