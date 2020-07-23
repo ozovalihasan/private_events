@@ -11,7 +11,6 @@ RSpec.describe 'users_controller', type: :system do
     expect(page).to have_content 'Graduation Party'
   end
 
-
   it 'shows an event page' do
     do_login('hillary')
     create_event('Graduation Party')
@@ -23,5 +22,4 @@ RSpec.describe 'users_controller', type: :system do
     do_login('hillary')
     expect(page).to have_content 'Upcoming Events'
   end
-  
 end

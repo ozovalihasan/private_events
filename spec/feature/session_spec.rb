@@ -15,5 +15,4 @@ RSpec.describe 'sessions_controller', type: :system do
     click_link('Sign out')
     expect(page).to have_content 'Sign in'
   end
-  
 end

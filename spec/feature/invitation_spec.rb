@@ -9,7 +9,7 @@ RSpec.describe 'invitations_controller', type: :system do
   it 'invites user to event' do
     do_login('hillary')
     create_event('Graduation Party')
-    invite(@user2, @user1,'Graduation Party')
+    invite(@user2, @user1, 'Graduation Party')
     expect(page).to have_content @user1.username
   end
 end

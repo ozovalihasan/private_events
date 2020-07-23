@@ -4,7 +4,7 @@ module EventsHelper
       render 'no_past_event'
     else
       render 'past_event'
-     end
+    end
   end
 
   def upcoming_events
@@ -20,7 +20,7 @@ module EventsHelper
       render 'no_attendance'
     else
       render 'attendance', event: @event
-     end
+    end
   end
 
   def creator

@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    unless session[:user_id]
-      flash[:error] = 'You must be logged in to access this section'
-      redirect_to sign_in_path # halts request cycle
-    end
+    return if session[:user_id]
+
+    flash[:error] = 'You must be logged in to access this section'
+    redirect_to sign_in_path # halts request cycle
   end
 end
