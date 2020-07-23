@@ -7,5 +7,5 @@
 <%= form_for user do |f| %>
 <%= f.label :username, 'Your username:' %>
 <%= f.text_field :username, placeholder: "xxxxyyy" %>
-<%= f.submit "Submit" %>
+<%= f.submit "Submit", name: 'sign_up' %>
 <% end %>
