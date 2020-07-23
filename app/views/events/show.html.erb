@@ -1,15 +1,15 @@
 <div class="wrapper">
-  <div>
-    <h1>
-      <%= @event.title %><br>
-    </h1>
-    <h2><%= @event.description %> </h2>
-    <h3><%= @event.date %></h3>
-    <h4>Created by <%= link_to @event.creator.username, user_path(@event.creator) %></h4><br>
-    <%= attendees %>
-  </div>
+    <div class="wrapper2">
+        <h1>
+            <%= @event.title %><br>
+        </h1>
+        <h2><%= @event.description %> </h2>
+        <h3><%= @event.date %></h3>
+        <h4>Created by <%= link_to @event.creator.username, user_path(@event.creator) %></h4><br>
+        <%= attendees %>
+    </div>
 
-  <div class="wrapper3">
-  <%= creator %>
-  </div>
+    <div class="wrapper3">
+        <%= creator %>
+    </div>
 </div>

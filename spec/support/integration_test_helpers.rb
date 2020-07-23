@@ -15,7 +15,7 @@ module IntegrationTestHelpers
   def create_event(title)
     click_link('Create Event')
     fill_in('Title', with: title)
-    page.find('#event_date').set("2020-10-23")
+    page.find('#event_date').set("10-23-2020") 
     fill_in('Description', with: 'Very good party')
     click_button('commit')
   end

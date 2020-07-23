@@ -1,21 +1,28 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.past-events {
- padding: 2em;
-}
 
-.past-events h1 {
-  font-size: 2em;
-}
+
 
 .wrapper {
   border: 1px solid rgb(207, 207, 207);
   background-color: rgb(252, 239, 239);
 }
 
-.wrapper2, .wrapper3 {
+.wrapper2 {
+  padding: 3em;
+}
+
+.wrapper3 {
   display: flex;
   justify-content: space-between;
   padding: 3em;
+}
+
+.all-events {
+  
+}
+
+.past-events, .future-events {
+  margin: 0 auto;
 }

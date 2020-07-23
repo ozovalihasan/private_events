@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:info] = ['The user was saved succesfully.']
+      flash[:info] = 'The user was saved succesfully.'
       redirect_to sign_in_path
     else
       flash[:info] = @user.errors.full_messages
