@@ -13004,3 +13004,1038 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 109ms (Views: 86.5ms | ActiveRecord: 4.6ms)
 
 
+Started GET "/" for ::1 at 2020-07-23 16:05:11 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (7.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (7.1ms)
+  Rendered events/index.html.erb within layouts/application (22.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.2ms)
+  Rendered layouts/_menu_links.html.erb (0.9ms)
+Completed 200 OK in 85ms (Views: 78.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:05:15 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (11.5ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (7.0ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (42.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.2ms)
+  Rendered layouts/_menu_links.html.erb (1.1ms)
+Completed 200 OK in 191ms (Views: 176.6ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:05:16 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (10.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (4.5ms)
+  Rendered events/index.html.erb within layouts/application (28.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.3ms)
+  Rendered layouts/_menu_links.html.erb (1.9ms)
+Completed 200 OK in 101ms (Views: 95.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:05:18 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (10.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (5.1ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (41.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.6ms)
+  Rendered layouts/_menu_links.html.erb (1.3ms)
+Completed 200 OK in 116ms (Views: 104.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/events/8" for ::1 at 2020-07-23 16:05:20 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:22
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 8]]
+  ↳ app/helpers/events_helper.rb:19
+  Rendered events/_no_attendance.html.erb (0.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/invitations/_form.html.erb:3
+  Rendered invitations/_form.html.erb (9.5ms)
+  Rendered events/show.html.erb within layouts/application (47.1ms)
+  Rendered layouts/_sign_out_link.html.erb (2.3ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 106ms (Views: 100.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:05:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (19.0ms)
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (11.9ms)
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (2.0ms)
+  Rendered users/show.html.erb within layouts/application (68.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.8ms)
+  Rendered layouts/_menu_links.html.erb (2.0ms)
+Completed 200 OK in 157ms (Views: 140.4ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:06:08 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (11.2ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (7.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (37.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (3.4ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 153ms (Views: 143.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:06:12 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (4.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (6.8ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (23.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.4ms)
+  Rendered layouts/_menu_links.html.erb (1.8ms)
+Completed 200 OK in 84ms (Views: 76.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:06:48 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (15.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (11.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (41.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.5ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 201ms (Views: 181.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:06:52 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (10.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (3.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.6ms)
+  Rendered users/show.html.erb within layouts/application (26.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (0.9ms)
+  Rendered layouts/_menu_links.html.erb (1.0ms)
+Completed 200 OK in 92ms (Views: 83.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:07:05 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (5.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (4.0ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.2ms)
+  Rendered users/show.html.erb within layouts/application (90.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.3ms)
+  Rendered layouts/_menu_links.html.erb (1.7ms)
+Completed 200 OK in 210ms (Views: 186.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:07:10 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (4.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (4.2ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.4ms)
+  Rendered users/show.html.erb within layouts/application (21.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.4ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 86ms (Views: 78.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:07:23 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (9.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (4.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (29.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.7ms)
+  Rendered layouts/_menu_links.html.erb (1.8ms)
+Completed 200 OK in 103ms (Views: 90.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:07:38 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (5.0ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (3.4ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (18.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (3.4ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 164ms (Views: 155.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:08:00 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (6.6ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (5.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (23.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.4ms)
+  Rendered layouts/_menu_links.html.erb (1.0ms)
+Completed 200 OK in 96ms (Views: 88.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:08:03 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (6.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (3.7ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (21.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.6ms)
+  Rendered layouts/_menu_links.html.erb (1.4ms)
+Completed 200 OK in 129ms (Views: 114.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:08:25 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (14.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (12.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (48.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.6ms)
+  Rendered layouts/_menu_links.html.erb (1.8ms)
+Completed 200 OK in 164ms (Views: 155.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/25" for ::1 at 2020-07-23 16:09:06 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_created_events.html.erb:3
+  Rendered users/_created_events.html.erb (4.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:7
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 25], ["LIMIT", 1000]]
+  ↳ app/views/users/_previous_events.html.erb:2
+  Rendered users/_previous_events.html.erb (5.7ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 25]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (24.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.4ms)
+  Rendered layouts/_menu_links.html.erb (1.3ms)
+Completed 200 OK in 190ms (Views: 171.5ms | ActiveRecord: 3.5ms)
+
+
+Started DELETE "/sign_out" for ::1 at 2020-07-23 16:09:16 +0300
+Processing by SessionsController#delete as HTML
+  Parameters: {"authenticity_token"=>"SwUTqYC1cmN4p2zW0245DgTsl8e0u67+S6svot71cu6tXNqTXq/hFkx7dMFw4ji6zFSM8aFtzGsmbEixYvxN8Q=="}
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for ::1 at 2020-07-23 16:09:16 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered sessions/_sign_in_form.html.erb (2.4ms)
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_in_link.html.erb (1.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Completed 200 OK in 73ms (Views: 70.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sign_in" for ::1 at 2020-07-23 16:09:19 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ayvx9jeU8CtXH26rnjjmSCautoD9Ud0sajaRR9r7Y13lcjjM6Y5jXmPDdrw9tOf87hattuiHv7kH8fZUZvJcQg==", "session"=>{"username"=>"dila"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "dila"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:09:19 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (6.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (6.9ms)
+  Rendered events/index.html.erb within layouts/application (23.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.2ms)
+  Rendered layouts/_menu_links.html.erb (2.0ms)
+Completed 200 OK in 93ms (Views: 87.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:09:21 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.1ms)
+  Rendered users/show.html.erb within layouts/application (15.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.5ms)
+  Rendered layouts/_menu_links.html.erb (1.5ms)
+Completed 200 OK in 79ms (Views: 71.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:09:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (8.6ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.1ms)
+  Rendered users/show.html.erb within layouts/application (23.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.8ms)
+  Rendered layouts/_menu_links.html.erb (1.9ms)
+Completed 200 OK in 92ms (Views: 80.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:09:27 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (7.2ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (6.5ms)
+  Rendered events/index.html.erb within layouts/application (27.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (3.8ms)
+  Rendered layouts/_menu_links.html.erb (2.7ms)
+Completed 200 OK in 133ms (Views: 128.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:09:31 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.6ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (15.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.1ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 79ms (Views: 72.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:09:35 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (4.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (6.9ms)
+  Rendered events/index.html.erb within layouts/application (24.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.1ms)
+  Rendered layouts/_menu_links.html.erb (1.1ms)
+Completed 200 OK in 84ms (Views: 79.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:09:39 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.9ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (12.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.5ms)
+  Rendered layouts/_menu_links.html.erb (1.3ms)
+Completed 200 OK in 88ms (Views: 77.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:09:46 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (17.9ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (5.0ms)
+  Rendered events/index.html.erb within layouts/application (40.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (0.9ms)
+  Rendered layouts/_menu_links.html.erb (0.5ms)
+Completed 200 OK in 173ms (Views: 168.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:00 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (1.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (19.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.9ms)
+  Rendered layouts/_menu_links.html.erb (1.0ms)
+Completed 200 OK in 99ms (Views: 80.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:10:02 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (7.4ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (4.4ms)
+  Rendered events/index.html.erb within layouts/application (20.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.2ms)
+  Rendered layouts/_menu_links.html.erb (1.8ms)
+Completed 200 OK in 99ms (Views: 93.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:04 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (3.1ms)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.8ms)
+  Rendered users/show.html.erb within layouts/application (26.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.1ms)
+  Rendered layouts/_menu_links.html.erb (0.7ms)
+Completed 200 OK in 117ms (Views: 108.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:18 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (1.6ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (17.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.9ms)
+  Rendered layouts/_menu_links.html.erb (1.6ms)
+Completed 200 OK in 102ms (Views: 92.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:10:22 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (12.6ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (6.5ms)
+  Rendered events/index.html.erb within layouts/application (30.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.5ms)
+  Rendered layouts/_menu_links.html.erb (1.9ms)
+Completed 200 OK in 92ms (Views: 84.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:24 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.9ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.5ms)
+  Rendered users/show.html.erb within layouts/application (36.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.2ms)
+  Rendered layouts/_menu_links.html.erb (1.4ms)
+Completed 200 OK in 110ms (Views: 101.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:10:25 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (7.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (6.2ms)
+  Rendered events/index.html.erb within layouts/application (27.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (3.0ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 101ms (Views: 95.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:33 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.9ms)
+  Rendered users/show.html.erb within layouts/application (10.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.6ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 85ms (Views: 71.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:10:35 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (10.7ms)
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (4.4ms)
+  Rendered events/index.html.erb within layouts/application (25.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.5ms)
+  Rendered layouts/_menu_links.html.erb (1.1ms)
+Completed 200 OK in 106ms (Views: 99.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:37 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (16.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.9ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 172ms (Views: 161.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:10:41 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (11.6ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (7.8ms)
+  Rendered events/index.html.erb within layouts/application (38.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.6ms)
+  Rendered layouts/_menu_links.html.erb (1.3ms)
+Completed 200 OK in 109ms (Views: 100.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:10:44 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (1.2ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (1.0ms)
+  Rendered users/show.html.erb within layouts/application (23.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.6ms)
+  Rendered layouts/_menu_links.html.erb (1.7ms)
+Completed 200 OK in 94ms (Views: 82.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:10:59 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (4.7ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (7.3ms)
+  Rendered events/index.html.erb within layouts/application (25.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (2.1ms)
+  Rendered layouts/_menu_links.html.erb (1.5ms)
+Completed 200 OK in 100ms (Views: 95.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/events/2" for ::1 at 2020-07-23 16:11:10 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:22
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/helpers/events_helper.rb:19
+  Rendered events/_no_attendance.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered events/show.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_sign_out_link.html.erb (2.3ms)
+  Rendered layouts/_menu_links.html.erb (0.8ms)
+Completed 200 OK in 70ms (Views: 67.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/30" for ::1 at 2020-07-23 16:11:15 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-23') )[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:7
+  Rendered users/_no_previous_events.html.erb (0.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-23'))[0m  [["user_id", 30]]
+  ↳ app/helpers/users_helper.rb:15
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (14.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (3.5ms)
+  Rendered layouts/_menu_links.html.erb (1.7ms)
+Completed 200 OK in 95ms (Views: 85.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2020-07-23 16:11:18 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:3
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date < ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_past_event.html.erb:2
+  Rendered events/_past_event.html.erb (10.5ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-23') )[0m
+  ↳ app/helpers/events_helper.rb:11
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-23') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ app/views/events/_future_events.html.erb:2
+  Rendered events/_future_events.html.erb (9.1ms)
+  Rendered events/index.html.erb within layouts/application (30.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered layouts/_sign_out_link.html.erb (1.5ms)
+  Rendered layouts/_menu_links.html.erb (1.3ms)
+Completed 200 OK in 89ms (Views: 84.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/events/2" for ::1 at 2020-07-23 16:11:19 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:22
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:8
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/helpers/events_helper.rb:19
+  Rendered events/_no_attendance.html.erb (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendered events/show.html.erb within layouts/application (17.2ms)
+  Rendered layouts/_sign_out_link.html.erb (1.9ms)
+  Rendered layouts/_menu_links.html.erb (1.2ms)
+Completed 200 OK in 78ms (Views: 71.4ms | ActiveRecord: 3.0ms)
+
+

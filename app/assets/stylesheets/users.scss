@@ -4,7 +4,6 @@
 .upcoming, .previous {
  display: flex;
  flex-direction: column;
- padding-top: 2em;
 }
 
 .container {
@@ -17,6 +16,8 @@
 display: flex;
 flex-direction: column;
 padding-top: 2em;
+padding-right: 2em;
+
 }
 
 .events-user h1, .previous h1, .upcoming h1{
@@ -24,4 +25,7 @@ padding-top: 2em;
 }
 .user-part {
   margin: 0 auto;
+  padding: 0 1em;
+  padding-top: 2em;
+  width: 50%;
 }
