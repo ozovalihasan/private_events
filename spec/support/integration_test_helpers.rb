@@ -22,8 +22,9 @@ module IntegrationTestHelpers
 
   def invite(creator,invited_user,event)
     visit root_path
-    click_link(creator)
+    click_link(creator.username)
     click_link(event)
     select invited_user.username, :from => "user_id"
   end
+  
 end

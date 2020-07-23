@@ -10,12 +10,5 @@ RSpec.describe 'users_controller', type: :system do
     do_signup('hillary')
     expect(page).to have_content 'Sign in'
   end
-
-  it '' do
-    do_login('hillary')
-    create_event('Graduation Party')
-    invite(@user2, @user1,'Graduation Party')
-    expect(page).to have_content @user1.username
-  end
-
+  
 end
