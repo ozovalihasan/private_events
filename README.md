@@ -20,29 +20,31 @@ This is a similar application like eventbrite which allows users to create event
 
 In this project, the following actions are done;
 
-# Setup signin and signup
+### Setup signin and signup
 
 - Modeled the data of the application, including the necessary tables.
 - Created a new Rails application and Git repo called private-events.
-- Built and migrated User model. 
+- Built and migrated User model.
 - Created a simple Users controller and corresponding routes for #new, #create, and #show actions.
 - Created a form where users can sign up and also signin in the #show page.
 
-# Basic Events
-- Built and migrated Event model. 
-- Added association between the event creator (a User) and the event. 
+### Basic Events
+
+- Built and migrated Event model.
+- Added association between the event creator (a User) and the event.
 - Added the foreign key to the Events model as necessary.
 - Modified User’s Show page to list all the events a user has created.
 - Created an EventsController and corresponding routes to allow you to create an event.
 - Created form for creating an event which contains a :description field.
 - Created the Event Index page to display all events.
 
-# Event Attendance
+### Event Attendance
+
 - Added association between the event attendee (also a User) and the event.
 - Created and migrated all necessary tables and foreign keys.
 - Made an Event’s Show page display a list of attendees.
 - Made a User’s Show page display a list of events they are attending.
-- Modified the User’s Show page to separate those events which have occurred in the past 
+- Modified the User’s Show page to separate those events which have occurred in the past
 - Refactored the “upcoming” and “past” methods into simple scopes.
 - Added navigation links.
 
@@ -60,7 +62,11 @@ In this project, the following actions are done;
 - Run `bundle install`
 - Open rails server by using `rails s`
 - Open browser and go to http://localhost:3000
-- Sign in by using any username and email
+
+## Test
+
+- Setup it
+- Run `rspec`
 
 ## Authors
 
