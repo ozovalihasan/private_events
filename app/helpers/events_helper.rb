@@ -24,6 +24,6 @@ module EventsHelper
   end
 
   def creator
-    render 'invitations/form', event: @event if @event.creator == current_user
+    render 'invitations/form', event: @event, not_invited: User.all - @event.attendees if @event.creator == current_user
   end
 end
