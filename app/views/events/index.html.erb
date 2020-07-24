@@ -1,0 +1,14 @@
+<div class="info">
+    <%= flash[:info] %>
+</div>
+<div class="container all-events">
+    <div class="past-events">
+        <h1>Past Events</h1>
+        <%= past_events(@past_events) %>
+    </div>
+
+    <div class="future-events">
+        <h1>Upcoming Events</h1>
+        <%= upcoming_events( @upcoming_events ) %>
+    </div>
+</div>

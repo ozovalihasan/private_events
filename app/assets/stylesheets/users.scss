@@ -1,0 +1,31 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.upcoming, .previous {
+ display: flex;
+ flex-direction: column;
+}
+
+.container {
+  display: flex;
+  border: 1px solid rgb(207, 207, 207);
+  background-color: rgb(252, 239, 239);
+}
+
+.events-user {
+display: flex;
+flex-direction: column;
+padding-top: 2em;
+padding-right: 2em;
+
+}
+
+.events-user h1, .previous h1, .upcoming h1{
+  font-size: 2.3em;
+}
+.user-part {
+  margin: 0 auto;
+  padding: 0 1em;
+  padding-top: 2em;
+  width: 50%;
+}

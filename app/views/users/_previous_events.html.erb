@@ -1,0 +1,7 @@
+<div>
+    <% previous_events.find_each do |previous_event, index| %>
+    <h3>
+        <%= link_to previous_event.title, event_path(previous_event) %> <br>
+    </h3>
+    <% end %>
+</div>

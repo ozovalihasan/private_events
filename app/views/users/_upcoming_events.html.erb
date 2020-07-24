@@ -1,0 +1,7 @@
+ <div>
+     <% upcoming_events.find_each do |upcoming_event, index| %>
+     <h3>
+         <%= link_to upcoming_event.title, event_path(upcoming_event) %><br>
+     </h3>
+     <% end %>
+ </div>

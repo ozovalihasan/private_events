@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PrivateEvents</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="left-nav">
+
+            </div>
+            <div class="right-nav">
+                <div class='current-user'>
+                    <h3>
+                        <%= show_sign_links %>
+                    </h3>
+                </div>
+                <%= show_navigation_items %>
+
+
+            </div>
+        </nav>
+    </header>
+    <%= yield %>
+</body>
+
+</html>

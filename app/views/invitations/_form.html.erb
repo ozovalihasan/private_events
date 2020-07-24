@@ -1,0 +1,6 @@
+<%= form_with(url: "/invitations", method: "post") do |f| %>
+<%= f.label :username, 'Your username:' %>
+<%= f.select :user_id, not_invited.collect { |p| [ p.username, p.id ]}, include_blank: true %>
+<%= hidden_field_tag(:event_id, event.id) %>
+<%= f.submit "Invite User" %>
+<% end %>
