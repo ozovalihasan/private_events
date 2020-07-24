@@ -20565,3 +20565,586 @@ Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.3ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (7.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:02:19.790020"], ["updated_at", "2020-07-24 08:02:19.790020"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:02:51 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:02:51 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (106.8ms)
+  Rendered sessions/new.html.erb within layouts/application (126.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 640ms (Views: 612.5ms | ActiveRecord: 0.9ms)
+Started GET "/assets/application-0c0d33ddc117609914d93f75db9cfb4ef14c6859789f9a121b368b3b8fd7e3d1.css" for 127.0.0.1 at 2020-07-24 11:02:52 +0300
+Started GET "/assets/application-e233bcecef1843838283802e6584c34c3570e0d6a4e2a5c7135a563d831e00e1.js" for 127.0.0.1 at 2020-07-24 11:02:52 +0300
+Started POST "/sign_in" for 127.0.0.1 at 2020-07-24 11:02:55 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"hillary"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hillary"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:39319/
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:02:55 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (23.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  Rendered events/_no_upcoming_events.html.erb (0.9ms)
+  Rendered events/index.html.erb within layouts/application (59.5ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (2.0ms)
+  Rendered layouts/_menu_links.html.erb (1.5ms)
+Completed 200 OK in 80ms (Views: 51.7ms | ActiveRecord: 25.0ms)
+Started GET "/events/new" for 127.0.0.1 at 2020-07-24 11:02:55 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (57.2ms)
+  Rendered events/new.html.erb within layouts/application (68.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.5ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 95ms (Views: 75.2ms | ActiveRecord: 0.9ms)
+Started POST "/events" for 127.0.0.1 at 2020-07-24 11:02:56 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "event"=>{"title"=>"Graduation Party", "date"=>"2020-10-23", "description"=>"Very good party"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (27.8ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id", "title", "description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-10-23"], ["created_at", "2020-07-24 08:02:56.467823"], ["updated_at", "2020-07-24 08:02:56.467823"], ["user_id", 1], ["title", "Graduation Party"], ["description", "Very good party"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:39319/events
+Completed 302 Found in 121ms (ActiveRecord: 28.6ms)
+Started GET "/events" for 127.0.0.1 at 2020-07-24 11:02:56 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-24') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered events/_future_events.html.erb (5.8ms)
+  Rendered events/index.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.4ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 1.9ms)
+  [1m[35m (19.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:02:58.207841"], ["updated_at", "2020-07-24 08:02:58.207841"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:02:58 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:02:58 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (1.3ms)
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 0.3ms)
+Started POST "/sign_in" for 127.0.0.1 at 2020-07-24 11:02:58 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"hillary"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hillary"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:39319/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:02:58 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  Rendered events/_no_upcoming_events.html.erb (0.1ms)
+  Rendered events/index.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.6ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 22ms (Views: 11.6ms | ActiveRecord: 1.1ms)
+Started GET "/events/new" for 127.0.0.1 at 2020-07-24 11:02:58 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (1.6ms)
+  Rendered events/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.5ms)
+  Rendered layouts/_menu_links.html.erb (0.4ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+Started POST "/events" for 127.0.0.1 at 2020-07-24 11:02:59 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "event"=>{"title"=>"Graduation Party", "date"=>"2020-10-23", "description"=>"Very good party"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id", "title", "description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-10-23"], ["created_at", "2020-07-24 08:02:59.606315"], ["updated_at", "2020-07-24 08:02:59.606315"], ["user_id", 1], ["title", "Graduation Party"], ["description", "Very good party"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:39319/events
+Completed 302 Found in 15ms (ActiveRecord: 1.3ms)
+Started GET "/events" for 127.0.0.1 at 2020-07-24 11:02:59 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-24') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered events/_future_events.html.erb (4.1ms)
+  Rendered events/index.html.erb within layouts/application (10.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.3ms)
+  Rendered layouts/_menu_links.html.erb (0.1ms)
+Completed 200 OK in 23ms (Views: 18.7ms | ActiveRecord: 1.0ms)
+Started GET "/events/1" for 127.0.0.1 at 2020-07-24 11:02:59 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 1]]
+  Rendered events/_no_attendance.html.erb (0.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered invitations/_form.html.erb (24.2ms)
+  Rendered events/show.html.erb within layouts/application (309.8ms)
+  Rendered layouts/_sign_out_link.html.erb (0.6ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 332ms (Views: 310.5ms | ActiveRecord: 6.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:00.651965"], ["updated_at", "2020-07-24 08:03:00.651965"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:00 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:00 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (4.2ms)
+  Rendered sessions/new.html.erb within layouts/application (6.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.3ms)
+Started POST "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:01 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"hillary"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hillary"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:39319/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:01 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  Rendered events/_no_upcoming_events.html.erb (0.1ms)
+  Rendered events/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.4ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:01.595684"], ["updated_at", "2020-07-24 08:03:01.595684"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:01.598936"], ["updated_at", "2020-07-24 08:03:01.598936"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:01 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:01 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (1.1ms)
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+Started POST "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:02 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"hillary"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hillary"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:39319/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:02 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  Rendered events/_no_upcoming_events.html.erb (0.1ms)
+  Rendered events/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.4ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.7ms)
+Started GET "/events/new" for 127.0.0.1 at 2020-07-24 11:03:02 +0300
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (6.3ms)
+  Rendered events/new.html.erb within layouts/application (7.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.8ms)
+  Rendered layouts/_menu_links.html.erb (0.5ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+Started POST "/events" for 127.0.0.1 at 2020-07-24 11:03:03 +0300
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "event"=>{"title"=>"Graduation Party", "date"=>"2020-10-23", "description"=>"Very good party"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id", "title", "description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-10-23"], ["created_at", "2020-07-24 08:03:03.166756"], ["updated_at", "2020-07-24 08:03:03.166756"], ["user_id", 2], ["title", "Graduation Party"], ["description", "Very good party"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:39319/events
+Completed 302 Found in 10ms (ActiveRecord: 1.2ms)
+Started GET "/events" for 127.0.0.1 at 2020-07-24 11:03:03 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-24') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered events/_future_events.html.erb (4.9ms)
+  Rendered events/index.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.8ms)
+  Rendered layouts/_menu_links.html.erb (0.4ms)
+Completed 200 OK in 21ms (Views: 15.9ms | ActiveRecord: 2.0ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:03 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE (date >= ('2020-07-24') ) ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered events/_future_events.html.erb (1.6ms)
+  Rendered events/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.4ms)
+  Rendered layouts/_menu_links.html.erb (0.4ms)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.7ms)
+Started GET "/users/2" for 127.0.0.1 at 2020-07-24 11:03:03 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."user_id" = ? ORDER BY "events"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1000]]
+  Rendered users/_created_events.html.erb (8.1ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date < ('2020-07-24') )[0m  [["user_id", 2]]
+  Rendered users/_no_previous_events.html.erb (1.5ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "invitations" ON "events"."id" = "invitations"."event_id" WHERE "invitations"."user_id" = ? AND (date >= ('2020-07-24'))[0m  [["user_id", 2]]
+  Rendered users/_no_upcoming_events.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (63.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (1.0ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 91ms (Views: 80.7ms | ActiveRecord: 2.5ms)
+Started GET "/events/1" for 127.0.0.1 at 2020-07-24 11:03:03 +0300
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "invitations" ON "users"."id" = "invitations"."user_id" WHERE "invitations"."event_id" = ?[0m  [["event_id", 1]]
+  Rendered events/_no_attendance.html.erb (0.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered invitations/_form.html.erb (2.7ms)
+  Rendered events/show.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_sign_out_link.html.erb (0.5ms)
+  Rendered layouts/_menu_links.html.erb (0.2ms)
+Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:04.324702"], ["updated_at", "2020-07-24 08:03:04.324702"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:04 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:04 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (1.5ms)
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.3ms)
+Started POST "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:04 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"hillary"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hillary"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:39319/
+Completed 302 Found in 8ms (ActiveRecord: 5.4ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:04 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  Rendered events/_no_upcoming_events.html.erb (0.1ms)
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.6ms)
+  Rendered layouts/_menu_links.html.erb (0.5ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:05.149441"], ["updated_at", "2020-07-24 08:03:05.149441"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:05 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:05 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (1.4ms)
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+Started POST "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:05 +0300
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "session"=>{"username"=>"hillary"}, "sign_in"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "hillary"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:39319/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:05 +0300
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date < ('2020-07-24') )[0m
+  Rendered events/_no_past_event.html.erb (0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE (date >= ('2020-07-24') )[0m
+  Rendered events/_no_upcoming_events.html.erb (0.0ms)
+  Rendered events/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sign_out_link.html.erb (0.6ms)
+  Rendered layouts/_menu_links.html.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.5ms)
+Started DELETE "/sign_out" for 127.0.0.1 at 2020-07-24 11:03:05 +0300
+Processing by SessionsController#delete as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:05 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-07-24 11:03:06 +0300
+Processing by EventsController#index as HTML
+Redirected to http://127.0.0.1:39319/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:06 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (0.8ms)
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+Started GET "/users/new" for 127.0.0.1 at 2020-07-24 11:03:06 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.9ms)
+  Rendered users/new.html.erb within layouts/application (14.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 61ms (Views: 23.8ms | ActiveRecord: 0.2ms)
+Started POST "/users" for 127.0.0.1 at 2020-07-24 11:03:06 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"hillary"}, "sign_up"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:06.831610"], ["updated_at", "2020-07-24 08:03:06.831610"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:39319/sign_in
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms)
+Started GET "/sign_in" for 127.0.0.1 at 2020-07-24 11:03:06 +0300
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered sessions/_sign_in_form.html.erb (1.8ms)
+  Rendered sessions/new.html.erb within layouts/application (5.6ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_sign_in_link.html.erb (0.8ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.214893"], ["updated_at", "2020-07-24 08:03:07.214893"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.227058"], ["updated_at", "2020-07-24 08:03:07.227058"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.277841"], ["updated_at", "2020-07-24 08:03:07.277841"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.290398"], ["updated_at", "2020-07-24 08:03:07.290398"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.304902"], ["updated_at", "2020-07-24 08:03:07.304902"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.312685"], ["updated_at", "2020-07-24 08:03:07.312685"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.319901"], ["updated_at", "2020-07-24 08:03:07.319901"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.329620"], ["updated_at", "2020-07-24 08:03:07.329620"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:07.334480"], ["updated_at", "2020-07-24 08:03:07.334480"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-24 08:03:07.341809"], ["updated_at", "2020-07-24 08:03:07.341809"], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.375921"], ["updated_at", "2020-07-24 08:03:07.375921"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:07.380221"], ["updated_at", "2020-07-24 08:03:07.380221"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (1.5ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-24 08:03:07.389453"], ["updated_at", "2020-07-24 08:03:07.389453"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.410264"], ["updated_at", "2020-07-24 08:03:07.410264"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:07.415165"], ["updated_at", "2020-07-24 08:03:07.415165"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-24 08:03:07.420708"], ["updated_at", "2020-07-24 08:03:07.420708"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.431329"], ["updated_at", "2020-07-24 08:03:07.431329"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:07.434641"], ["updated_at", "2020-07-24 08:03:07.434641"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-24 08:03:07.439344"], ["updated_at", "2020-07-24 08:03:07.439344"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hasan"], ["created_at", "2020-07-24 08:03:07.452088"], ["updated_at", "2020-07-24 08:03:07.452088"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "hillary"], ["created_at", "2020-07-24 08:03:07.456326"], ["updated_at", "2020-07-24 08:03:07.456326"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("date", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["date", "2020-08-15"], ["created_at", "2020-07-24 08:03:07.461970"], ["updated_at", "2020-07-24 08:03:07.461970"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
